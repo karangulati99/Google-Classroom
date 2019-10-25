@@ -1,0 +1,116 @@
+{% extends "Base.html" %} {% block content %}
+
+<style>
+.img {
+  object-fit:scale-down;
+    
+    width:  100px;
+    height: 100px;
+    
+}
+
+
+
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+</style>
+<br />
+<br />
+<br />
+
+
+ <h3 class="text-center">
+  Welcome : {{ user }}
+</h3>
+<hr>
+
+
+
+
+
+<h4>Courses created by you <a  href="/courses/add" class="btn-floating btn-large waves-effect waves-light teal lighten-2"><i class="material-icons">add</i></a></h4>
+
+
+<br />
+<div class="container">
+  <div class="row">
+    {% for a in qs %}
+    <div class="col-sm-4">
+        
+            <div class="card">
+                <div class="embed-responsive embed-responsive-16by9">
+      
+        
+     
+          <img
+          alt="Card image cap" class="card-img-top embed-responsive-item"
+            
+            src="{{ a.image.url }}"
+            
+          />
+                </div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a>{{ a.name }} </a>
+            </h4>
+            <p class="card-text">on {{ a.created_At }}</p>
+          </div>
+          <a href="{{ a.get_absolute_url }}" class="btn btn-primary"> Manage</a>
+        </div>
+      </div>
+    
+    
+    
+
+    <br />
+    <br /><br /><br />
+    {% endfor %}
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<hr />
+<h4>
+  Courses joined by you <a  href=" /courses/all"  class="btn-floating btn-large waves-effect waves-light teal lighten-2">JOIN OTHER COURSES</a></h4>
+  
+  
+
+  
+  <div class="container">
+    <div class="row">
+      {% for a1 in qs1 %}
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="embed-responsive embed-responsive-16by9">
+       
+          >
+            <img alt="Card image cap"
+            class="card-img-top embed-responsive-item"
+            
+              src="{{ a1.image.url }}"
+             
+            />
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a> {{ a1.name }} </a>
+              </h4>
+              <h6>
+                created by {{ a1.created_by }} <br />on {{ a1.created_At }}
+              </h6>
+            </div>
+            <a href="{{ a1.get_absolute_url }}" class="btn btn-primary"> View</a>
+          </div>
+        </div>
+      
+      {% endfor %}
+    </div>
+  </div>
+  <br />
+  <br />
+  <hr />
+  {% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends "Base.html" %} {% block content %}
+<style>
+#download-button
+{
+  width: 300px;
+  text-align: center;
+  margin:0 auto;
+
+}
+
+</style>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center teal-text">E-Classroom</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">A modern teaching method for the students</h5>
+          </div>
+          {% if user.is_authenticated %}
+
+          <div class="row center">
+                <a href="accounts/profile" id="download-button" class="btn-large waves-effect waves-light teal">WELCOME BACK {{user}}</a>
+                </div>
+          <br><br>
+    {% else %}
+
+    <div class="row center">
+            <a href="accounts/signup" id="download-button" class="btn-large waves-effect waves-light teal ">Sign Up to Get Started</a>
+          </div>
+          <br><br>
+          {% endif %}
+    
+        </div>
+      </div>
+    
+      <div class="container">
+        <div class="section">
+    
+          <!--   Icon Section   -->
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center teal-text"><i class="material-icons">flash_on</i></h2>
+                <h5 class="center">Speeds up development</h5>
+    
+                <p class="light">Online Classroom develops the fundamentals of the subjects for the students who don't believe in the traditional classroom teaching.</p></div>
+            </div>
+    
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center teal-text"><i class="material-icons">group</i></h2>
+                <h5 class="center">User Experience Focused</h5>
+    
+                <p class="light">By utilizing elements and principles of Online Classroom, students and teachers are able to expand their knowledge by creating and joining their subjects respectively.The students and teachers will get familiar with using online classroom as they will be interacting with each other.</p>
+              </div>
+            </div>
+    
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center teal-text"><i class="material-icons">settings</i></h2>
+                <h5 class="center">Easy to work with</h5>
+    
+                <p class="light">Both the students and the teachers will be provided with their respective courses.They can easily share their materials and assignments with each other.On their respective announcements,both the students and teachers can comments on the given announcements.</p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        <br><br>
+      </div>
+    </body>
+{% endblock %}
